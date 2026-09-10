@@ -1,0 +1,226 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── Base styles ── */
+@layer base {
+  html { scroll-behavior: smooth; }
+
+  body {
+    @apply font-sans antialiased;
+    color: #404040;
+    background-color: #ffffff;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-sans font-bold;
+    color: #0A0A0A;
+  }
+}
+
+/* ── Figma-aligned component utilities ── */
+@layer components {
+
+  /* ── Container: 1440px + 140px side padding ── */
+  .figma-container {
+    max-width: 1440px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 140px;
+    padding-right: 140px;
+  }
+  @media (max-width: 1440px) {
+    .figma-container { padding-left: 80px; padding-right: 80px; }
+  }
+  @media (max-width: 1024px) {
+    .figma-container { padding-left: 40px; padding-right: 40px; }
+  }
+  @media (max-width: 640px) {
+    .figma-container { padding-left: 20px; padding-right: 20px; }
+  }
+
+  /* Legacy: kept so old classes don't break during migration */
+  .container-pad {
+    max-width: 1440px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 140px;
+    padding-right: 140px;
+  }
+  @media (max-width: 1440px) { .container-pad { padding-left: 80px; padding-right: 80px; } }
+  @media (max-width: 1024px) { .container-pad { padding-left: 40px; padding-right: 40px; } }
+  @media (max-width: 640px)  { .container-pad { padding-left: 20px; padding-right: 20px; } }
+
+  /* ── Section title: Nunito 28px bold centered ── */
+  .section-title {
+    font-family: 'Nunito', sans-serif;
+    font-size: 28px;
+    font-weight: 700;
+    line-height: 1.2;
+    text-align: center;
+    color: #0A0A0A;
+    letter-spacing: 0;
+  }
+
+  /* ── Section title: left-aligned variant ── */
+  .section-title-left {
+    font-family: 'Nunito', sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 1.2;
+    text-align: left;
+    color: #0A0A0A;
+  }
+
+  /* ── Teal underline decoration ── */
+  .section-underline {
+    display: block;
+    width: 56px;
+    height: 3px;
+    background-color: #17A2B8;
+    border-radius: 2px;
+    margin-top: 16px;
+  }
+  .section-underline-center { margin-left: auto; margin-right: auto; }
+
+  .section-subtitle {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.5;
+    text-align: center;
+    color: #616161;
+  }
+
+  /* ── Primary CTA button — 20px radius, #17A2B8 ── */
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 12px 24px;
+    height: 40px;
+    background-color: #17A2B8;
+    color: #ffffff;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1;
+    border-radius: 20px;
+    border: none;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: background-color 0.2s, box-shadow 0.2s;
+  }
+  .btn-primary:hover { background-color: #1590A3; }
+  .btn-primary:active { background-color: #127E8E; }
+
+  /* ── Outline button — 1px border, 20px radius ── */
+  .btn-outline {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 12px 24px;
+    height: 40px;
+    background-color: transparent;
+    color: #17A2B8;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1;
+    border-radius: 20px;
+    border: 1px solid #17A2B8;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: background-color 0.2s, color 0.2s;
+  }
+  .btn-outline:hover { background-color: #17A2B8; color: #fff; }
+
+  /* ── White ghost button (used in CTA / footer) ── */
+  .btn-white {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 12px 24px;
+    height: 40px;
+    background-color: #ffffff;
+    color: #17A2B8;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1;
+    border-radius: 20px;
+    border: none;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: background-color 0.2s;
+  }
+  .btn-white:hover { background-color: #f0fafb; }
+
+  /* ── Social circle button — 56×56, 28px radius ── */
+  .btn-social {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 56px;
+    height: 56px;
+    border-radius: 28px;
+    border: 1px solid #17A2B8;
+    background: transparent;
+    cursor: pointer;
+    transition: background-color 0.2s, color 0.2s;
+    color: #17A2B8;
+    flex-shrink: 0;
+  }
+  .btn-social:hover { background-color: #17A2B8; color: #fff; }
+
+  /* ── Card base ── */
+  .card {
+    background: #ffffff;
+    border-radius: 8px;
+    transition: box-shadow 0.3s;
+  }
+
+  /* ── Badge ── */
+  .badge-teal {
+    display: inline-flex;
+    align-items: center;
+    background: #E3F4F6;
+    color: #17A2B8;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    padding: 4px 12px;
+    border-radius: 999px;
+  }
+  .badge-green {
+    @apply badge-teal;
+  }
+}
+
+/* ── Animations ── */
+@layer utilities {
+  .animate-fade-in {
+    animation: fadeIn 0.5s ease-in-out;
+  }
+  .animate-slide-in {
+    animation: slideIn 0.3s ease-out;
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideIn {
+  from { opacity: 0; transform: translateX(-20px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+/* ── Scrollbar ── */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: #F5F5F5; }
+::-webkit-scrollbar-thumb { background: #17A2B8; border-radius: 9999px; }

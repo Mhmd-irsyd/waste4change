@@ -1,4 +1,4 @@
-<template>
+﻿<template>
   <!-- SECTION - LAYANAN KAMI -->
   <section id="layanan" style="background:#ffffff;">
     <div class="layanan-container">
@@ -171,7 +171,7 @@ const card2Clients = [
 
 // Card 3: Recycling Hub
 const card3Clients = [
-  { name: 'NestlÃ©',      logo: '/images/clients/client-14.png' },
+  { name: 'NestlÃƒÂ©',      logo: '/images/clients/client-14.png' },
   { name: 'MedcoEnergi', logo: '/images/clients/client-13.png' },
 ]
 
@@ -441,7 +441,7 @@ const scrollLogos = (refName: string, dir: number) => {
   .svc-header-desc { text-align: left; max-width: 100%; }
 }
 
-/* ===== MOBILE: â‰¤768px ===== */
+/* ===== MOBILE: Ã¢â€°Â¤768px ===== */
 @media (max-width: 768px) {
   .layanan-container {
     padding-left: 20px;
@@ -536,3 +536,4 @@ const scrollLogos = (refName: string, dir: number) => {
   .svc-img-wrap { height: 180px; }
 }
 </style>
+

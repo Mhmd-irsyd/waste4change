@@ -31,12 +31,14 @@
         <!-- Right Side: Flag + Hamburger (Mobile) -->
         <div class="flex items-center gap-3">
           <!-- Flag Selector -->
-          <button class="hidden lg:flex items-center gap-1.5 text-xs font-semibold text-[#404040] hover:text-[#17A2B8] transition-colors">
+          <button @click="showToast('Language Selector')" class="flex items-center gap-1 text-xs font-semibold text-[#404040] hover:text-[#17A2B8] transition-colors" aria-label="Language selector">
             <span class="w-5 h-3.5 rounded-sm overflow-hidden flex flex-col flex-shrink-0 border border-gray-300">
               <span class="flex-1 bg-[#D80027]"></span>
               <span class="flex-1 bg-white"></span>
             </span>
-            <span>ID</span>
+            <svg class="w-3 h-3 text-[#404040]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"/>
+            </svg>
           </button>
 
           <!-- Mobile Hamburger Button -->

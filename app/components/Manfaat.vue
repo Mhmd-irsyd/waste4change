@@ -109,8 +109,7 @@
           <div class="manfaat-cta-overlay"></div>
           <h3 class="manfaat-cta-title">Mulai Dampakmu Sekarang!</h3>
           <button
-            class="btn-white"
-            style="font-size:13px; font-weight:700; letter-spacing:0.08em; position:relative; z-index:1;"
+            class="manfaat-cta-btn"
             @click="$emit('hubungi')"
           >
             HUBUNGI KAMI
@@ -439,13 +438,13 @@ const handleTouchEnd = (e: TouchEvent) => {
 .manfaat-cta {
   width: 100%;
   max-width: 1162px;
-  margin-top: 16px;
+  margin-top: 24px;
 }
 
 .manfaat-cta-inner {
   position: relative;
   width: 100%;
-  min-height: 240px;
+  min-height: 260px;
   border-radius: 12px;
   background-color: #17A2B8;
   background-image: url('/images/support-section.png');
@@ -455,7 +454,7 @@ const handleTouchEnd = (e: TouchEvent) => {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 20px;
+  gap: 24px;
   padding: 48px 24px;
   overflow: hidden;
   box-sizing: border-box;
@@ -464,7 +463,7 @@ const handleTouchEnd = (e: TouchEvent) => {
 .manfaat-cta-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, rgba(23,162,184,0.45) 0%, rgba(55,145,146,0.9) 46%, rgba(36,217,142,1) 100%);
+  background: linear-gradient(135deg, rgba(23, 162, 184, 0.6) 0%, rgba(34, 183, 140, 0.85) 100%);
   border-radius: 12px;
 }
 
@@ -474,10 +473,33 @@ const handleTouchEnd = (e: TouchEvent) => {
   font-family: 'Asap', sans-serif;
   font-size: 32px;
   font-weight: 700;
-  line-height: 1.4;
+  line-height: 1.3;
   color: #ffffff;
   margin: 0;
   text-align: center;
+  max-width: 320px;
+}
+
+.manfaat-cta-btn {
+  position: relative;
+  z-index: 1;
+  background: #ffffff;
+  color: #17A2B8;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  padding: 12px 32px;
+  border-radius: 9999px;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.manfaat-cta-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
 }
 
 /* Responsive adjustments */
@@ -499,8 +521,14 @@ const handleTouchEnd = (e: TouchEvent) => {
     padding: 32px 20px;
   }
 
+  .manfaat-cta-inner {
+    min-height: 380px;
+    padding: 56px 20px;
+  }
+
   .manfaat-cta-title {
-    font-size: 24px;
+    font-size: 28px;
+    max-width: 220px;
   }
 
   .manfaat-arrow-btn {
@@ -509,4 +537,3 @@ const handleTouchEnd = (e: TouchEvent) => {
   }
 }
 </style>
-

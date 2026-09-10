@@ -31,14 +31,12 @@
         <!-- Right Side: Flag + Hamburger (Mobile) -->
         <div class="flex items-center gap-3">
           <!-- Flag Selector -->
-          <button @click="showToast('Language Selector')" class="flex items-center gap-1 text-xs font-semibold text-[#404040] hover:text-[#17A2B8] transition-colors" aria-label="Language selector">
+          <button class="hidden lg:flex items-center gap-1.5 text-xs font-semibold text-[#404040] hover:text-[#17A2B8] transition-colors">
             <span class="w-5 h-3.5 rounded-sm overflow-hidden flex flex-col flex-shrink-0 border border-gray-300">
               <span class="flex-1 bg-[#D80027]"></span>
               <span class="flex-1 bg-white"></span>
             </span>
-            <svg class="w-3.5 h-3.5 text-[#404040] flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
-            </svg>
+            <span>ID</span>
           </button>
 
           <!-- Mobile Hamburger Button -->
@@ -72,7 +70,7 @@
         <!-- Right: Pill CTA Button + Down Chevron Icon -->
         <div class="flex items-center gap-3">
           <button
-            class="btn-primary text-[11px] sm:text-xs font-bold tracking-wider px-3.5 sm:px-5 py-1.5 sm:py-2 rounded-full shadow-sm whitespace-nowrap"
+            class="btn-primary text-[11px] sm:text-xs font-bold tracking-wider px-5 py-2 rounded-full shadow-sm"
             style="border-radius: 9999px; background-color: #17A2B8; color: #ffffff;"
             @click="showToast('Dukung Tujuan Kami')"
           >

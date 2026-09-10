@@ -15,10 +15,10 @@
       <div class="site-carousel-wrap">
         <div
           class="site-carousel-track"
-          :style="{ transform: `translateX(-${currentSlide * slideWidth}%)` }"
+          :style="trackStyle"
         >
           <!-- ===== Card 1: RBF Bekasi ===== -->
-          <article class="site-card">
+          <article class="site-card" :style="cardStyle">
             <div class="site-card-img-wrap">
               <img src="/images/site-card.png" alt="Fasilitas RBF Bekasi" class="site-card-img" loading="lazy"/>
             </div>
@@ -81,7 +81,7 @@
           </article>
 
           <!-- ===== Card 2: RBF Bali ===== -->
-          <article class="site-card">
+          <article class="site-card" :style="cardStyle">
             <div class="site-card-img-wrap">
               <img src="/images/dsc9954.png" alt="Fasilitas RBF Bali" class="site-card-img" loading="lazy"/>
             </div>
@@ -150,7 +150,7 @@
           </article>
 
           <!-- ===== Card 3: RBF Bandung ===== -->
-          <article class="site-card">
+          <article class="site-card" :style="cardStyle">
             <div class="site-card-img-wrap">
               <img src="/images/workers-1.png" alt="Fasilitas RBF Bandung" class="site-card-img" loading="lazy"/>
             </div>
@@ -250,25 +250,35 @@
 <script setup lang="ts">
 import { ref, computed, onMounted, onUnmounted } from 'vue'
 
-// Responsive: how many cards per view
-const cardsPerView = ref(3)
-const totalCards = 3
+const TOTAL_CARDS = 3
 const currentSlide = ref(0)
+const cardsPerView = ref(3)
 
-const totalSlides = computed(() => Math.ceil(totalCards / cardsPerView.value))
-const slideWidth = computed(() => 100 / cardsPerView.value * cardsPerView.value / totalSlides.value)
+// Total slides = ceil(totalCards / cardsPerView)
+const totalSlides = computed(() => Math.ceil(TOTAL_CARDS / cardsPerView.value))
+
+// Track: width = totalSlides * 100% of viewport
+// Shift per slide = (100 / totalSlides)% of track width
+const trackStyle = computed(() => ({
+  width: `${totalSlides.value * 100}%`,
+  transform: `translateX(-${currentSlide.value * (100 / totalSlides.value)}%)`
+}))
+
+// Card: flex basis = (1/TOTAL_CARDS) of track = consistent regardless of view
+const cardStyle = computed(() => ({
+  flex: `0 0 calc(${100 / TOTAL_CARDS}% - ${cardsPerView.value > 1 ? '16px' : '0px'})`,
+  marginRight: cardsPerView.value > 1 ? '24px' : '0'
+}))
 
 const updateCardsPerView = () => {
-  if (window.innerWidth < 640) {
-    cardsPerView.value = 1
-  } else if (window.innerWidth < 1024) {
-    cardsPerView.value = 1
-  } else {
-    cardsPerView.value = 3
-  }
-  // Clamp currentSlide
-  if (currentSlide.value >= totalSlides.value) {
-    currentSlide.value = totalSlides.value - 1
+  const w = window.innerWidth
+  const newVal = w >= 1024 ? 3 : 1
+  if (newVal !== cardsPerView.value) {
+    cardsPerView.value = newVal
+    // Clamp slide to valid range
+    if (currentSlide.value >= totalSlides.value) {
+      currentSlide.value = totalSlides.value - 1
+    }
   }
 }
 
@@ -281,8 +291,12 @@ onUnmounted(() => {
   window.removeEventListener('resize', updateCardsPerView)
 })
 
-const prev = () => { if (currentSlide.value > 0) currentSlide.value-- }
-const next = () => { if (currentSlide.value < totalSlides.value - 1) currentSlide.value++ }
+const prev = () => {
+  if (currentSlide.value > 0) currentSlide.value--
+}
+const next = () => {
+  if (currentSlide.value < totalSlides.value - 1) currentSlide.value++
+}
 const goTo = (i: number) => { currentSlide.value = i }
 </script>
 
@@ -340,15 +354,12 @@ const goTo = (i: number) => { currentSlide.value = i }
   flex-direction: row;
   transition: transform 0.45s cubic-bezier(0.4, 0, 0.2, 1);
   gap: 0;
-  /* each card takes 1/3 width (3 cards visible) */
-  width: 100%;
+  
+  
 }
 
 /* Each card: 1/3 of track width on desktop, full width on mobile */
 .site-card {
-  flex: 0 0 calc(33.333% - 16px);
-  width: calc(33.333% - 16px);
-  margin-right: 24px;
   display: flex;
   flex-direction: column;
   background: #FFFFFF;
@@ -580,11 +591,7 @@ const goTo = (i: number) => { currentSlide.value = i }
 @media (max-width: 1024px) {
   .figma-container.site-container { padding-left: 40px; padding-right: 40px; }
   /* On tablet, show 1 card at a time */
-  .site-card {
-    flex: 0 0 100%;
-    width: 100%;
-    margin-right: 0;
-  }
+
   .site-carousel-track {
     gap: 0;
   }
@@ -599,11 +606,7 @@ const goTo = (i: number) => { currentSlide.value = i }
     gap: 32px;
   }
 
-  .site-card {
-    flex: 0 0 100%;
-    width: 100%;
-    margin-right: 0;
-  }
+
 
   .site-card-body { padding: 20px 20px 24px 20px; }
   .site-card-img-wrap { height: 200px; }

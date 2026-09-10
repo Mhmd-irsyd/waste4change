@@ -1,7 +1,7 @@
 <template>
   <div>
     <Navbar />
-    <main>
+    <main class="pt-[112px]">
       <Hero @dukung="handleDukung" @download="handleDownload" />
       <Tentang />
       <CorePillars />

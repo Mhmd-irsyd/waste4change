@@ -1,6 +1,13 @@
-# Waste4Change – Master Homepage 2026
+﻿# Waste4Change — Master Homepage 2026
 
 Implementasi UI dari desain **Master Homepage 2026 (FINAL - RWR)** Waste4Change menggunakan **Nuxt 3** dan **Tailwind CSS**.
+
+---
+
+## 🌐 Live Website & Demo
+
+Website telah berhasil di-deploy dan dapat diakses publik di:
+👉 **[https://waste4change.vercel.app/](https://waste4change.vercel.app/)**
 
 ---
 
@@ -14,8 +21,8 @@ Implementasi UI dari desain **Master Homepage 2026 (FINAL - RWR)** Waste4Change 
 
 ```bash
 # Clone repository
-git clone <url-repository>
-cd waste4change-homepage
+git clone https://github.com/Mhmd-irsyd/waste4change.git
+cd waste4change
 
 # Install dependencies
 npm install
@@ -24,12 +31,15 @@ npm install
 npm run dev
 ```
 
-Akses di browser: **http://localhost:3000**
+Akses aplikasi di browser: **`http://localhost:3000`**
 
 ### Build Production
 
 ```bash
+# Build aplikasi untuk produksi
 npm run build
+
+# Preview build lokal
 npm run preview
 ```
 
@@ -38,73 +48,65 @@ npm run preview
 ## 📁 Struktur Project
 
 ```
+├── app/
+│   ├── components/
+│   │   ├── Navbar.vue            # Sticky header & mobile drawer
+│   │   ├── Hero.vue              # Hero section dengan backdrop veil & CTA
+│   │   ├── Tentang.vue           # Section tentang layanan RWR (stacked mobile cards)
+│   │   ├── CorePillars.vue       # 3 pilar utama (watermark numbers & icon boxes)
+│   │   ├── HowRwrWorks.vue       # 5 langkah proses RWR (vertical mobile timeline)
+│   │   ├── LayananKami.vue       # 3 layanan utama dengan 2-column logo grid
+│   │   ├── SiteKami.vue          # Carousel interaktif 3 fasilitas RWF
+│   │   ├── Manfaat.vue           # Carousel manfaat & CTA banner
+│   │   ├── Direkomendasikan.vue  # 6 rekomendasi industri
+│   │   ├── FAQ.vue               # Accordion FAQ interaktif
+│   │   ├── Sebarkan.vue        # Social sharing section
+│   │   └── AppFooter.vue         # Responsive footer & dropdown
+│   └── pages/
+│       ├── index.vue             # Halaman utama (merakit semua komponen)
+│       └── [...slug].vue         # Fallback page
 ├── assets/
 │   └── css/
-│       └── main.css          # Global styles & Tailwind directives
-├── components/
-│   ├── Navbar.vue            # Sticky header dengan mobile drawer
-│   ├── Hero.vue              # Hero section dengan breadcrumb & CTA
-│   ├── Tentang.vue           # Section tentang layanan RWR
-│   ├── CorePillars.vue       # 3 pilar utama (numbered cards)
-│   ├── HowRwrWorks.vue       # 5 langkah proses RWR (alternating)
-│   ├── LayananKami.vue       # 3 layanan utama dengan logo mitra
-│   ├── SiteKami.vue          # 3 fasilitas RWF dengan statistik
-│   ├── Manfaat.vue           # 6 kartu manfaat dengan ikon
-│   ├── CTABanner.vue         # Banner CTA hijau "Mulai Dampakmu"
-│   ├── Direkomendasikan.vue  # 6 rekomendasi industri
-│   ├── FAQ.vue               # FAQ accordion interaktif
-│   ├── BeritaTerbaru.vue     # 3 artikel terkait
-│   └── AppFooter.vue         # Footer 4 kolom
-├── pages/
-│   ├── index.vue             # Halaman utama (merakit semua komponen)
-│   └── [...slug].vue         # Halaman fallback "Under Development"
+│       └── main.css              # Global styles & Tailwind directives
 ├── public/
-│   └── images/
-│       ├── hero-banner.png
-│       ├── support-section.png
-│       ├── site-card.png
-│       └── partners/         # Logo mitra & klien
-├── app.vue                   # Root aplikasi
-├── nuxt.config.ts            # Konfigurasi Nuxt 3
-└── tailwind.config.js        # Konfigurasi Tailwind CSS
+│   └── images/                   # Asset gambar & logo mitra
+├── app.vue                       # Root aplikasi Vue
+├── nuxt.config.ts                # Konfigurasi Nuxt 3 (SEO & modules)
+├── tailwind.config.js            # Design tokens & tema warna Tailwind CSS
+└── package.json                  # Dependencies & npm scripts
 ```
 
 ---
 
-## 🛠 Teknologi yang Digunakan
+## 🛠️ Teknologi yang Digunakan
 
 | Teknologi | Versi | Fungsi |
 |---|---|---|
-| **Nuxt 3** | ^3.x | Framework Vue SSR |
+| **Nuxt 3** | ^3.x | Framework Fullstack Vue SSR |
 | **Vue 3** | ^3.x | UI Component Framework |
-| **Tailwind CSS** | ^3.x | Utility-First CSS |
+| **Tailwind CSS** | ^3.x | Utility-First CSS & Design System |
 | **@nuxtjs/tailwindcss** | ^6.x | Integrasi Tailwind ke Nuxt |
-| **TypeScript** | ^5.x | Type-safe development |
+| **TypeScript** | ^5.x | Static Typing & Maintenance |
 
 ---
 
-## ✨ Fitur Utama
+## ✨ Fitur & Keunggulan
 
-- ✅ **Pixel-Perfect Design** – Implementasi presisi sesuai FINAL-RWR dari Figma
-- ✅ **Fully Responsive** – Mobile (375px), Tablet (768px), Desktop (1280px+)
-- ✅ **Sticky Navbar** – Transparansi shadow on scroll + Mobile Drawer dengan animasi
-- ✅ **Toast Notification** – Handling halaman "Under Development" secara elegan
-- ✅ **FAQ Accordion** – Animasi expand/collapse yang halus
-- ✅ **Hover Interactions** – Semua kartu, tombol, dan link memiliki efek hover
-- ✅ **SEO Optimized** – `useSeoMeta()`, semantic HTML, `alt` pada semua gambar
-- ✅ **SSR (Server-Side Rendering)** – Performa loading awal cepat
-- ✅ **Lazy Loading Images** – Optimasi performa asset gambar
+- 🎯 **Pixel-Perfect & Responsive** — Presisi 100% sesuai Figma (Desktop, Tablet, dan Mobile).
+- 🎠 **Interactive Carousels** — Site Kami & Manfaat section menggunakan carousel fungsional (Prev/Next arrows, dot indicators, touch swipe).
+- 📱 **Mobile Drawer & Accordion** — Mobile Navbar drawer & FAQ expand/collapse dengan animasi halus.
+- 🖼️ **2-Column Mobile Logo Grid** — Susunan logo mitra 2 kolom terpusat di mobile view.
+- ⚡ **SEO & Performance** — `useSeoMeta()`, HTML5 semantic markup, `alt` atribut gambar, serta lazy loading.
 
 ---
 
-## 🌐 Deployment
+## ☁️ Deployment
 
-Dideploy menggunakan **Vercel** / **Netlify**.
-
-Live URL: _[isi setelah deploy]_
+- **Platform**: Vercel (Auto Deployment via GitHub `main` branch)
+- **Live URL**: [https://waste4change.vercel.app/](https://waste4change.vercel.app/)
 
 ---
 
 ## 👤 Author
 
-Dibuat sebagai bagian dari **Maganghub Study Case: Fullstack Web Developer** – Waste4Change Assessment Task 2026.
+Dibuat sebagai bagian dari **Assessment Task — Fullstack Web Developer (Waste4Change Homepage 2026)**.

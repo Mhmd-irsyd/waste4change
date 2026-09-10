@@ -1,87 +1,53 @@
-<template>
-  <header class="sticky top-0 z-50 bg-white" :class="{ 'shadow-nav': scrolled }">
+﻿<template>
+  <header
+    class="fixed top-0 left-0 right-0 z-50 transition-all duration-200 bg-white"
+    :class="{ 'shadow-md': scrolled }"
+  >
+    <!-- TOP MAIN NAVBAR -->
+    <div class="navbar-inner border-b border-[#E0E0E0]">
+      <div class="figma-container flex items-center justify-between py-3">
 
-    <!-- MAIN NAVBAR -->
-    <div class="navbar-inner">
-      <div class="figma-container flex items-center justify-between h-16 lg:h-[84px]">
-
-        <!-- Logo -->
-        <NuxtLink to="/" class="flex-shrink-0 flex items-center">
+        <!-- Left: W4C Logo -->
+        <NuxtLink to="/" class="flex items-center gap-2 focus:outline-none">
           <img
             src="/images/w4c-logo.png"
-            alt="Waste4Change - Responsible Waste Management"
-            class="h-8 lg:h-9 w-auto"
-            width="120"
-            height="36"
+            alt="Waste4Change Logo"
+            class="h-8 md:h-10 w-auto object-contain"
           />
         </NuxtLink>
 
-        <!-- Desktop Navigation Links -->
-        <nav class="hidden lg:flex items-center gap-9" aria-label="Main navigation">
-          <button class="nav-item flex items-center gap-1" @click="showToast('Layanan')">
-            LAYANAN
-            <svg class="w-3 h-3 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"/>
-            </svg>
+        <!-- Desktop Navigation Items -->
+        <nav class="hidden lg:flex items-center gap-6 xl:gap-8" aria-label="Main navigation">
+          <button
+            v-for="item in mobileLinks"
+            :key="item"
+            class="nav-item"
+            @click="showToast(item)"
+          >
+            {{ item }}
           </button>
-
-          <button class="nav-item flex items-center gap-1" @click="showToast('Produk')">
-            PRODUK
-            <svg class="w-3 h-3 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"/>
-            </svg>
-          </button>
-
-          <button class="nav-item" @click="showToast('Tentang')">TENTANG</button>
-          <button class="nav-item" @click="showToast('Riset')">RISET</button>
-
-          <button class="nav-item flex items-center gap-1" @click="showToast('Blog & Media')">
-            BLOG &amp; MEDIA
-            <svg class="w-3 h-3 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"/>
-            </svg>
-          </button>
-
-          <button class="nav-item" @click="showToast('Portofolio')">PORTOFOLIO</button>
-
-          <button class="nav-item flex items-center gap-1" @click="showToast('Karier')">
-            KARIER
-            <svg class="w-3 h-3 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"/>
-            </svg>
-          </button>
-
-          <button class="nav-item" @click="showToast('Kontak')">KONTAK</button>
         </nav>
 
-        <!-- Right Controls: Language Selector + Mobile Toggle -->
-        <div class="flex items-center gap-4 lg:gap-4">
-          <!-- Language Selector (Mobile & Desktop) -->
-          <button
-            class="flex items-center gap-1.5 px-1 py-1 rounded hover:bg-gray-50 transition-colors"
-            @click="showToast('Language Selector')"
-            aria-label="Pilih Bahasa"
-          >
-            <span class="w-6 h-4 rounded-[2px] overflow-hidden flex flex-col flex-shrink-0 border border-gray-300 shadow-sm">
+        <!-- Right Side: Flag + Hamburger (Mobile) -->
+        <div class="flex items-center gap-3">
+          <!-- Flag Selector -->
+          <button class="hidden lg:flex items-center gap-1.5 text-xs font-semibold text-[#404040] hover:text-[#17A2B8] transition-colors">
+            <span class="w-5 h-3.5 rounded-sm overflow-hidden flex flex-col flex-shrink-0 border border-gray-300">
               <span class="flex-1 bg-[#D80027]"></span>
               <span class="flex-1 bg-white"></span>
             </span>
-            <span class="hidden lg:inline text-[11px] font-bold text-[#404040] tracking-wide">ID</span>
-            <svg class="w-3.5 h-3.5 text-[#2B2B2B]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"/>
-            </svg>
+            <span>ID</span>
           </button>
 
-          <!-- Mobile Hamburger -->
+          <!-- Mobile Hamburger Button -->
           <button
-            class="lg:hidden p-1 rounded hover:bg-gray-100 transition-colors text-[#0A0A0A]"
             @click="mobileOpen = !mobileOpen"
-            :aria-expanded="mobileOpen"
+            class="lg:hidden p-1.5 text-[#404040] hover:text-[#17A2B8] transition-colors focus:outline-none"
             aria-label="Toggle navigation menu"
           >
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
-              <path v-if="!mobileOpen" stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
-              <path v-else stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path v-if="!mobileOpen" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+              <path v-else stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
             </svg>
           </button>
         </div>
@@ -89,50 +55,31 @@
       </div>
     </div>
 
-    <!-- SECONDARY SUBNAV BAR -->
-    <div class="bg-[#F5F5F5] border-b border-gray-200">
-      <div class="figma-container flex items-center justify-between py-2 lg:py-0" style="min-height:44px;">
-
-        <!-- Desktop Subnav Links -->
-        <nav class="hidden lg:flex items-center gap-6" aria-label="Secondary navigation">
-          <button
-            v-for="link in subnavLinks"
-            :key="link"
-            class="subnav-item"
-            @click="showToast(link)"
-          >
-            {{ link }}
-          </button>
-        </nav>
-
-        <!-- Desktop Subnav CTA -->
-        <button class="hidden lg:inline-flex btn-primary" style="font-size:12px; letter-spacing:0.08em;" @click="showToast('Dukung Tujuan Kami')">
-          DUKUNG TUJUAN KAMI
+    <!-- SUB-NAVBAR (Desktop & Mobile 100% Match with Screenshot) -->
+    <div class="subnav-bar bg-[#F5F5F5] border-b border-[#E7E7E7] w-full">
+      <div class="figma-container flex items-center justify-between py-2" style="min-height: 48px;">
+        
+        <!-- Left: Back Chevron + RWR Text -->
+        <button @click="scrollToTop" class="flex items-center gap-2 text-[#0A0A0A] hover:opacity-80 transition-opacity">
+          <svg class="w-4 h-4 text-[#0A0A0A]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7"/>
+          </svg>
+          <span class="font-bold text-xs sm:text-sm text-[#0A0A0A] tracking-wider">RWR</span>
         </button>
 
-        <!-- Mobile Subnav Bar (Matches Screenshot) -->
-        <div class="flex lg:hidden items-center justify-between w-full">
-          <!-- Left: Back chevron + RWR -->
-          <button @click="scrollToTop" class="flex items-center gap-1.5 text-[#0A0A0A] hover:opacity-80 transition-opacity">
-            <svg class="w-4 h-4 text-[#0A0A0A]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7"/>
-            </svg>
-            <span class="font-bold text-xs sm:text-sm text-[#0A0A0A] tracking-wider">RWR</span>
-          </button>
-
-          <!-- Middle: Pill CTA button DUKUNG TUJUAN KAMI -->
+        <!-- Right: Pill CTA Button + Down Chevron Icon -->
+        <div class="flex items-center gap-3">
           <button
-            class="btn-primary text-[10px] sm:text-[11px] font-bold tracking-wider px-4 rounded-full"
-            style="height:34px; border-radius:9999px; background-color:#17A2B8;"
+            class="btn-primary text-[11px] sm:text-xs font-bold tracking-wider px-5 py-2 rounded-full shadow-sm"
+            style="border-radius: 9999px; background-color: #17A2B8; color: #ffffff;"
             @click="showToast('Dukung Tujuan Kami')"
           >
             DUKUNG TUJUAN KAMI
           </button>
 
-          <!-- Right: Down chevron for mobile subnav toggle -->
           <button
             @click="subnavOpen = !subnavOpen"
-            class="p-1 text-[#0A0A0A] hover:opacity-80 transition-opacity"
+            class="p-1 text-[#0A0A0A] hover:opacity-80 transition-opacity flex items-center justify-center"
             aria-label="Toggle subnav menu"
           >
             <svg
@@ -149,24 +96,26 @@
 
       </div>
 
-      <!-- Mobile Subnav Dropdown Drawer -->
+      <!-- Subnav Dropdown Drawer (toggled when clicking down chevron) -->
       <Transition name="subnav-drawer">
-        <div v-if="subnavOpen" class="lg:hidden bg-white border-t border-gray-200 px-4 py-2">
-          <nav class="flex flex-col gap-1">
-            <button
-              v-for="link in subnavLinks"
-              :key="link"
-              class="text-left py-2 px-2 text-xs font-semibold text-[#404040] hover:text-[#17A2B8] transition-colors border-b border-gray-50 last:border-none"
-              @click="handleSubnavMobileLink(link)"
-            >
-              {{ link }}
-            </button>
-          </nav>
+        <div v-if="subnavOpen" class="bg-white border-t border-gray-200 px-4 sm:px-8 py-3 shadow-md">
+          <div class="figma-container">
+            <nav class="flex flex-col sm:flex-row sm:items-center sm:justify-around gap-2 sm:gap-4">
+              <button
+                v-for="link in subnavLinks"
+                :key="link"
+                class="text-left sm:text-center py-2 px-3 text-xs font-semibold text-[#404040] hover:text-[#17A2B8] transition-colors border-b sm:border-b-0 border-gray-100 last:border-none"
+                @click="handleSubnavMobileLink(link)"
+              >
+                {{ link }}
+              </button>
+            </nav>
+          </div>
         </div>
       </Transition>
     </div>
 
-    <!-- MOBILE DRAWER -->
+    <!-- MOBILE MAIN MENU DRAWER -->
     <Transition name="mobile-menu">
       <div v-if="mobileOpen" class="lg:hidden border-t border-gray-100 bg-white shadow-lg">
         <nav class="figma-container py-3 flex flex-col" aria-label="Mobile navigation">
@@ -215,6 +164,8 @@
 </template>
 
 <script setup lang="ts">
+import { ref, onMounted, onUnmounted } from 'vue'
+
 const mobileOpen = ref(false)
 const subnavOpen = ref(false)
 const scrolled = ref(false)

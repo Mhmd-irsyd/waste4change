@@ -4,7 +4,7 @@
     <div class="figma-container py-10 lg:py-16">
 
       <!-- Mobile Section Header: Centered "TENTANG" + underline (Mobile Only) -->
-      <div class="flex lg:hidden flex-col items-center text-center mb-6">
+      <div class="mobile-about-label-wrap">
         <h2 class="about-label">TENTANG</h2>
         <span class="section-underline section-underline-center"></span>
       </div>
@@ -27,7 +27,7 @@
         <div class="about-content">
 
           <!-- Desktop Section label (Desktop Only) -->
-          <div class="about-label-wrap hidden lg:flex">
+          <div class="desktop-about-label-wrap">
             <h2 class="about-label">TENTANG</h2>
             <span class="section-underline"></span>
           </div>
@@ -62,6 +62,33 @@
 </script>
 
 <style scoped>
+/* Mobile vs Desktop Label Visibility */
+.mobile-about-label-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.desktop-about-label-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+@media (min-width: 1025px) {
+  .mobile-about-label-wrap {
+    display: none !important;
+  }
+}
+
+@media (max-width: 1024px) {
+  .desktop-about-label-wrap {
+    display: none !important;
+  }
+}
+
 /* Grid: row, 48px gap, fill width */
 .about-grid {
   display: flex;
@@ -99,11 +126,6 @@
 }
 
 /* Section label */
-.about-label-wrap {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-}
 .about-label {
   font-family: 'Nunito', sans-serif;
   font-size: 24px;

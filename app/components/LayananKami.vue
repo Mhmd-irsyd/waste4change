@@ -167,13 +167,11 @@ const card2Clients = [
   { name: 'J Trust Bank', logo: '/images/clients/client-11.png' },
   { name: 'Lifebuoy',     logo: '/images/clients/lifebuoy.png' },
   { name: 'Sprite',       logo: '/images/clients/sprite.svg' },
-  { name: 'Ades',         logo: '/images/clients/ades.png' },
-  { name: 'Sampoerna',    logo: '/images/clients/sampoerna.png' },
 ]
 
 // Card 3: Recycling Hub
 const card3Clients = [
-  { name: 'Nestlé',      logo: '/images/clients/client-14.png' },
+  { name: 'NestlÃ©',      logo: '/images/clients/client-14.png' },
   { name: 'MedcoEnergi', logo: '/images/clients/client-13.png' },
 ]
 
@@ -443,7 +441,7 @@ const scrollLogos = (refName: string, dir: number) => {
   .svc-header-desc { text-align: left; max-width: 100%; }
 }
 
-/* ===== MOBILE: ≤768px ===== */
+/* ===== MOBILE: â‰¤768px ===== */
 @media (max-width: 768px) {
   .layanan-container {
     padding-left: 20px;

@@ -1,51 +1,36 @@
 <template>
-  <!-- SECTION - LAYANAN KAMI: bg white, padding 100px 140px 120px, col centered, gap 40px -->
+  <!-- SECTION - LAYANAN KAMI -->
   <section id="layanan" style="background:#ffffff;">
-    <div
-      class="figma-container"
-      style="padding-top:100px; padding-bottom:120px; display:flex; flex-direction:column; align-items:center; gap:40px;"
-    >
+    <div class="layanan-container">
 
-      <!-- ── Header: row space-between ── -->
-      <div style="display:flex; flex-direction:row; justify-content:space-between; align-items:flex-end; gap:24px; width:100%;">
-        <div style="display:flex; flex-direction:column; gap:24px;">
-          <h2 class="section-title" style="text-align:left;">LAYANAN KAMI</h2>
-          <span class="section-underline" style="margin-top:0;"></span>
+      <!-- ===== Header ===== -->
+      <!-- DESKTOP: title left, desc right | MOBILE: both centered -->
+      <div class="layanan-header">
+        <div class="layanan-title-wrap">
+          <h2 class="section-title layanan-title-text">LAYANAN KAMI</h2>
+          <span class="section-underline layanan-underline"></span>
         </div>
         <p class="svc-header-desc">Berikut beberapa layanan yang relevan terhadap kebutuhan Anda</p>
       </div>
 
-      <!-- ── Service Cards: col, 32px gap ── -->
-      <div style="display:flex; flex-direction:column; gap:32px; width:100%;">
+      <!-- ===== Service Cards ===== -->
+      <div class="svc-cards-list">
 
-        <!-- ═══ Card 1: Responsible Packaging Recovery ═══ -->
+        <!-- Card 1: Responsible Packaging Recovery -->
         <div class="svc-card">
-          <!-- Left: Image -->
           <div class="svc-img-wrap">
-            <img
-              src="/images/services/svc1-photo.jpg"
-              alt="Responsible Packaging Recovery"
-              class="svc-img"
-              loading="lazy"
-            />
+            <img src="/images/services/svc1-photo.jpg" alt="Responsible Packaging Recovery" class="svc-img" loading="lazy"/>
           </div>
-          <!-- Right: Info -->
           <div class="svc-info">
-            <!-- Description block -->
             <div class="svc-desc-block">
-              <!-- Category: Open Sans 12px/600, #00A5BA -->
               <span class="svc-category">Material Traceability</span>
-              <!-- Title: Asap 20px/600, #0A0A0A -->
               <h3 class="svc-title">Responsible Packaging Recovery</h3>
-              <!-- Desc: Open Sans 14px/400, #414041 -->
               <p class="svc-desc">Membantu produsen memulihkan kemasan pascakonsumsi melalui pengumpulan dan daur ulang yang bertanggung jawab, dengan sistem tertelusur dan data kredibel untuk pelaporan keberlanjutan dan EPR.</p>
             </div>
-            <!-- Clients block -->
             <div class="svc-clients-block">
-              <!-- Header row: "Klien kami" + navigation arrows -->
               <div class="svc-clients-header">
                 <span class="svc-clients-label">Klien kami</span>
-                <div class="svc-nav-arrows">
+                <div class="svc-nav-arrows svc-nav-desktop">
                   <button class="svc-arrow-btn" @click="scrollLogos('svc1', -1)" aria-label="Previous">
                     <svg width="16" height="16" fill="none" stroke="#17A2B8" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/></svg>
                   </button>
@@ -54,29 +39,29 @@
                   </button>
                 </div>
               </div>
-              <!-- Logo row: scrollable, with fade shadow at right -->
-              <div class="svc-logos-outer">
+              <!-- Desktop: scrollable row -->
+              <div class="svc-logos-outer svc-logos-desktop">
                 <div class="svc-logos-row" ref="svc1">
                   <div class="svc-logo-box" v-for="client in card1Clients" :key="client.name">
-                    <img :src="client.logo" :alt="client.name" class="svc-logo-img" />
+                    <img :src="client.logo" :alt="client.name" class="svc-logo-img"/>
                   </div>
                 </div>
-                <!-- Fade overlay at right edge -->
                 <div class="svc-logos-fade"></div>
+              </div>
+              <!-- Mobile: wrap grid -->
+              <div class="svc-logos-grid svc-logos-mobile">
+                <div class="svc-logo-box" v-for="client in card1Clients" :key="client.name">
+                  <img :src="client.logo" :alt="client.name" class="svc-logo-img"/>
+                </div>
               </div>
             </div>
           </div>
         </div>
 
-        <!-- ═══ Card 2: Circular Sustainability Initiative ═══ -->
+        <!-- Card 2: Circular Sustainability Initiative -->
         <div class="svc-card">
           <div class="svc-img-wrap">
-            <img
-              src="/images/dsc9954.png"
-              alt="Circular Sustainability Initiative"
-              class="svc-img"
-              loading="lazy"
-            />
+            <img src="/images/dsc9954.png" alt="Circular Sustainability Initiative" class="svc-img" loading="lazy"/>
           </div>
           <div class="svc-info">
             <div class="svc-desc-block">
@@ -87,7 +72,7 @@
             <div class="svc-clients-block">
               <div class="svc-clients-header">
                 <span class="svc-clients-label">Klien kami</span>
-                <div class="svc-nav-arrows">
+                <div class="svc-nav-arrows svc-nav-desktop">
                   <button class="svc-arrow-btn" @click="scrollLogos('svc2', -1)" aria-label="Previous">
                     <svg width="16" height="16" fill="none" stroke="#17A2B8" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/></svg>
                   </button>
@@ -96,27 +81,27 @@
                   </button>
                 </div>
               </div>
-              <div class="svc-logos-outer">
+              <div class="svc-logos-outer svc-logos-desktop">
                 <div class="svc-logos-row" ref="svc2">
                   <div class="svc-logo-box" v-for="client in card2Clients" :key="client.name">
-                    <img :src="client.logo" :alt="client.name" class="svc-logo-img" />
+                    <img :src="client.logo" :alt="client.name" class="svc-logo-img"/>
                   </div>
                 </div>
                 <div class="svc-logos-fade"></div>
+              </div>
+              <div class="svc-logos-grid svc-logos-mobile">
+                <div class="svc-logo-box" v-for="client in card2Clients" :key="client.name">
+                  <img :src="client.logo" :alt="client.name" class="svc-logo-img"/>
+                </div>
               </div>
             </div>
           </div>
         </div>
 
-        <!-- ═══ Card 3: Recycling Hub ═══ -->
+        <!-- Card 3: Recycling Hub -->
         <div class="svc-card">
           <div class="svc-img-wrap">
-            <img
-              src="/images/img9835.png"
-              alt="Recycling Hub"
-              class="svc-img"
-              loading="lazy"
-            />
+            <img src="/images/img9835.png" alt="Recycling Hub" class="svc-img" loading="lazy"/>
           </div>
           <div class="svc-info">
             <div class="svc-desc-block">
@@ -127,7 +112,7 @@
             <div class="svc-clients-block">
               <div class="svc-clients-header">
                 <span class="svc-clients-label">Klien kami</span>
-                <div class="svc-nav-arrows">
+                <div class="svc-nav-arrows svc-nav-desktop">
                   <button class="svc-arrow-btn" @click="scrollLogos('svc3', -1)" aria-label="Previous">
                     <svg width="16" height="16" fill="none" stroke="#17A2B8" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/></svg>
                   </button>
@@ -136,13 +121,18 @@
                   </button>
                 </div>
               </div>
-              <div class="svc-logos-outer">
+              <div class="svc-logos-outer svc-logos-desktop">
                 <div class="svc-logos-row" ref="svc3">
                   <div class="svc-logo-box" v-for="client in card3Clients" :key="client.name">
-                    <img :src="client.logo" :alt="client.name" class="svc-logo-img" />
+                    <img :src="client.logo" :alt="client.name" class="svc-logo-img"/>
                   </div>
                 </div>
                 <div class="svc-logos-fade"></div>
+              </div>
+              <div class="svc-logos-grid svc-logos-mobile">
+                <div class="svc-logo-box" v-for="client in card3Clients" :key="client.name">
+                  <img :src="client.logo" :alt="client.name" class="svc-logo-img"/>
+                </div>
               </div>
             </div>
           </div>
@@ -154,9 +144,9 @@
 </template>
 
 <script setup lang="ts">
-// ── Client data per card — verified from actual image files ──
+import { ref } from 'vue'
+
 // Card 1: Responsible Packaging Recovery
-// client-0=rePurpose, client-1=CleanHub, client-2=Ogyre, client-3=Plastic-Offset, client-4=IPRO, client-5=KAO
 const card1Clients = [
   { name: 'rePurpose',      logo: '/images/clients/client-0.png' },
   { name: 'CleanHub',       logo: '/images/clients/client-1.png' },
@@ -177,27 +167,64 @@ const card2Clients = [
   { name: 'J Trust Bank', logo: '/images/clients/client-11.png' },
   { name: 'Lifebuoy',     logo: '/images/clients/lifebuoy.png' },
   { name: 'Sprite',       logo: '/images/clients/sprite.svg' },
+  { name: 'Ades',         logo: '/images/clients/ades.png' },
+  { name: 'Sampoerna',    logo: '/images/clients/sampoerna.png' },
 ]
 
 // Card 3: Recycling Hub
 const card3Clients = [
-  { name: 'Nestlé',         logo: '/images/clients/client-14.png' },
-  { name: 'MedcoEnergi',     logo: '/images/clients/client-13.png' },
+  { name: 'Nestlé',      logo: '/images/clients/client-14.png' },
+  { name: 'MedcoEnergi', logo: '/images/clients/client-13.png' },
 ]
 
-// ── Scroll logos carousel ──
+// Scroll logos carousel (desktop)
 const svc1 = ref<HTMLElement | null>(null)
 const svc2 = ref<HTMLElement | null>(null)
 const svc3 = ref<HTMLElement | null>(null)
 
-const scrollLogos = (ref: string, dir: number) => {
-  const el = ref === 'svc1' ? svc1.value : ref === 'svc2' ? svc2.value : svc3.value
+const scrollLogos = (refName: string, dir: number) => {
+  const el = refName === 'svc1' ? svc1.value : refName === 'svc2' ? svc2.value : svc3.value
   if (el) el.scrollBy({ left: dir * 120, behavior: 'smooth' })
 }
 </script>
 
 <style scoped>
-/* ── Header description ── */
+/* ===== Main Container ===== */
+.layanan-container {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 100px 140px 120px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+}
+
+/* ===== Header ===== */
+.layanan-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 24px;
+  width: 100%;
+}
+
+.layanan-title-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.layanan-title-text {
+  text-align: left;
+}
+
+.layanan-underline {
+  margin-top: 0;
+}
+
+/* Header desc: right-aligned on desktop */
 .svc-header-desc {
   font-family: 'Open Sans', sans-serif;
   font-size: 14px;
@@ -210,8 +237,15 @@ const scrollLogos = (ref: string, dir: number) => {
   flex-shrink: 0;
 }
 
-/* ═══ Service Card ═══ */
-/* row, 32px gap, border #E7E6E7 1px, 8px radius, 32px 40px padding */
+/* ===== Cards List ===== */
+.svc-cards-list {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  width: 100%;
+}
+
+/* ===== Service Card ===== */
 .svc-card {
   display: flex;
   flex-direction: row;
@@ -225,7 +259,7 @@ const scrollLogos = (ref: string, dir: number) => {
   box-sizing: border-box;
 }
 
-/* ── Left image: fixed 300px wide, 220px tall, 8px radius ── */
+/* Left image */
 .svc-img-wrap {
   width: 300px;
   height: 220px;
@@ -241,7 +275,7 @@ const scrollLogos = (ref: string, dir: number) => {
 }
 .svc-card:hover .svc-img { transform: scale(1.04); }
 
-/* ── Right info: fill remaining, col, 24px gap ── */
+/* Right info */
 .svc-info {
   display: flex;
   flex-direction: column;
@@ -250,24 +284,23 @@ const scrollLogos = (ref: string, dir: number) => {
   min-width: 0;
 }
 
-/* ── Description block: col, 16px gap ── */
+/* Description block */
 .svc-desc-block {
   display: flex;
   flex-direction: column;
   gap: 8px;
 }
 
-/* Category: Open Sans 12px/600, #00A5BA */
+/* Category tag */
 .svc-category {
   font-family: 'Open Sans', sans-serif;
   font-size: 12px;
   font-weight: 600;
   line-height: 1.5;
   color: #00A5BA;
-  text-transform: none;
 }
 
-/* Title: Asap 20px/600, #0A0A0A */
+/* Service title */
 .svc-title {
   font-family: 'Asap', sans-serif;
   font-size: 20px;
@@ -277,7 +310,7 @@ const scrollLogos = (ref: string, dir: number) => {
   margin: 0;
 }
 
-/* Description: Open Sans 14px/400, #414041 */
+/* Service description */
 .svc-desc {
   font-family: 'Open Sans', sans-serif;
   font-size: 14px;
@@ -287,14 +320,13 @@ const scrollLogos = (ref: string, dir: number) => {
   margin: 0;
 }
 
-/* ── Clients block: col, 8px gap ── */
+/* ===== Clients Block ===== */
 .svc-clients-block {
   display: flex;
   flex-direction: column;
   gap: 8px;
 }
 
-/* ── Clients header row: space-between, center align ── */
 .svc-clients-header {
   display: flex;
   flex-direction: row;
@@ -303,7 +335,7 @@ const scrollLogos = (ref: string, dir: number) => {
   gap: 12px;
 }
 
-/* "Klien kami" label: Asap 14px/500, #404040 */
+/* "Klien kami" label */
 .svc-clients-label {
   font-family: 'Asap', sans-serif;
   font-size: 14px;
@@ -312,7 +344,7 @@ const scrollLogos = (ref: string, dir: number) => {
   color: #404040;
 }
 
-/* Navigation arrows: row, 12px gap */
+/* Nav arrows (desktop only) */
 .svc-nav-arrows {
   display: flex;
   flex-direction: row;
@@ -320,7 +352,6 @@ const scrollLogos = (ref: string, dir: number) => {
   gap: 12px;
 }
 
-/* Arrow button: transparent, #17A2B8 icon */
 .svc-arrow-btn {
   display: inline-flex;
   align-items: center;
@@ -337,13 +368,12 @@ const scrollLogos = (ref: string, dir: number) => {
 }
 .svc-arrow-btn:hover { background: #E3F4F6; }
 
-/* ── Logo row wrapper: relative (for fade overlay) ── */
+/* ===== Desktop Logo Row (scrollable) ===== */
 .svc-logos-outer {
   position: relative;
   overflow: hidden;
 }
 
-/* Logos row: row, 8px gap, scrollable horizontally, no scrollbar */
 .svc-logos-row {
   display: flex;
   flex-direction: row;
@@ -356,7 +386,25 @@ const scrollLogos = (ref: string, dir: number) => {
 }
 .svc-logos-row::-webkit-scrollbar { display: none; }
 
-/* ── Each logo box: border 1px #E7E7E7, 4px radius, fixed size ── */
+/* Fade overlay at right edge */
+.svc-logos-fade {
+  position: absolute;
+  top: 0; right: 0;
+  width: 80px;
+  height: 100%;
+  background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 100%);
+  pointer-events: none;
+}
+
+/* ===== Mobile Logo Grid (wrap) ===== */
+.svc-logos-grid {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+/* Each logo box */
 .svc-logo-box {
   display: flex;
   align-items: center;
@@ -371,7 +419,6 @@ const scrollLogos = (ref: string, dir: number) => {
   box-sizing: border-box;
 }
 
-/* Logo image: contain, full color */
 .svc-logo-img {
   width: 100%;
   height: 100%;
@@ -379,29 +426,115 @@ const scrollLogos = (ref: string, dir: number) => {
   transition: opacity 0.2s;
 }
 
-/* ── Fade overlay at right edge (matches Figma "Shadow" RECTANGLE) ── */
-.svc-logos-fade {
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 80px;
-  height: 100%;
-  background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 100%);
-  pointer-events: none;
+/* Show/hide per breakpoint */
+.svc-logos-desktop { display: block; }
+.svc-logos-mobile  { display: none; }
+.svc-nav-desktop   { display: flex; }
+
+/* ===== Responsive ===== */
+@media (max-width: 1440px) {
+  .layanan-container { padding-left: 80px; padding-right: 80px; }
 }
 
-/* ── Responsive ── */
-
 @media (max-width: 1024px) {
+  .layanan-container { padding-left: 40px; padding-right: 40px; }
   .svc-card { flex-direction: column; padding: 24px; }
   .svc-img-wrap { width: 100%; height: 220px; }
   .svc-header-desc { text-align: left; max-width: 100%; }
 }
-@media (max-width: 640px) {
-  .svc-card { padding: 18px 16px; gap: 16px; }
+
+/* ===== MOBILE: ≤768px ===== */
+@media (max-width: 768px) {
+  .layanan-container {
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 48px;
+    padding-bottom: 56px;
+    gap: 28px;
+  }
+
+  /* Header: stack, centered */
+  .layanan-header {
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .layanan-title-wrap {
+    align-items: center;
+    gap: 16px;
+  }
+
+  .layanan-title-text {
+    text-align: center;
+  }
+
+  .svc-header-desc {
+    text-align: center;
+    max-width: 100%;
+    font-size: 14px;
+  }
+
+  /* Cards: no border on mobile, just padding */
+  .svc-card {
+    flex-direction: column;
+    padding: 0;
+    gap: 16px;
+    border: none;
+    border-radius: 0;
+    border-bottom: 1px solid #E7E6E7;
+    padding-bottom: 28px;
+  }
+
+  .svc-cards-list {
+    gap: 20px;
+  }
+
+  /* Image full width, taller on mobile */
+  .svc-img-wrap {
+    width: 100%;
+    height: 200px;
+    border-radius: 8px;
+  }
+
+  /* Info block */
+  .svc-info { gap: 16px; }
+
+  /* Title */
+  .svc-title {
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 1.3;
+  }
+
+  /* Desc */
+  .svc-desc {
+    font-size: 13px;
+    line-height: 1.6;
+  }
+
+  /* Switch logo layout */
+  .svc-logos-desktop { display: none; }
+  .svc-logos-mobile  { display: flex; }
+  .svc-nav-desktop   { display: none; }
+
+  /* Mobile logo grid: 3 per row */
+  .svc-logos-grid {
+    gap: 6px;
+  }
+
+  .svc-logo-box {
+    width: calc(33.333% - 5px);
+    height: 48px;
+    padding: 6px;
+  }
+}
+
+@media (max-width: 480px) {
+  .svc-logo-box {
+    width: calc(33.333% - 5px);
+    height: 44px;
+  }
   .svc-img-wrap { height: 180px; }
-  .svc-title { font-size: 18px; }
-  .svc-desc { font-size: 13px; }
-  .svc-logos-outer { max-width: 100%; }
 }
 </style>

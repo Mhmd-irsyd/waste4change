@@ -1,10 +1,9 @@
-<template>
-  <!-- SECTION - SEBARKAN BERITA BAIK INI: white bg, padding 64px 140px, space-between row -->
+﻿<template>
   <section id="sebarkan" class="sebarkan-section">
     <div class="figma-container">
       <div class="sebarkan-layout">
 
-        <!-- Left: Title + Description -->
+        <!-- Title + Description -->
         <div class="sebarkan-text">
           <h2 class="sebarkan-title">Sebarkan Berita Baik Ini</h2>
           <p class="sebarkan-desc">
@@ -12,13 +11,13 @@
           </p>
         </div>
 
-        <!-- Right: 5 Social Buttons (Twitter, Facebook, LinkedIn, WhatsApp, Link) -->
+        <!-- 5 Social Buttons -->
         <div class="sebarkan-buttons">
 
           <!-- 1: Twitter / X -->
           <button class="btn-social" aria-label="Share on Twitter" @click="share('twitter')">
             <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.742l7.737-8.835L1.254 2.25H8.08l4.259 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+              <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.936 9.936 0 0024 4.59z"/>
             </svg>
           </button>
 
@@ -98,13 +97,13 @@ const copyLink = () => {
 .sebarkan-text {
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: 8px;
   max-width: 600px;
 }
 
 .sebarkan-title {
   font-family: 'Asap', sans-serif;
-  font-size: 24px;
+  font-size: 28px;
   font-weight: 700;
   color: #17A2B8;
   margin: 0;
@@ -113,10 +112,10 @@ const copyLink = () => {
 
 .sebarkan-desc {
   font-family: 'Open Sans', sans-serif;
-  font-size: 14px;
+  font-size: 15px;
   font-weight: 400;
   line-height: 1.5;
-  color: #7A7A7A;
+  color: #616161;
   margin: 0;
 }
 
@@ -133,7 +132,7 @@ const copyLink = () => {
   width: 48px;
   height: 48px;
   border-radius: 50%;
-  border: 1px solid #17A2B8;
+  border: 1.5px solid #17A2B8;
   background: #FFFFFF;
   color: #17A2B8;
   display: flex;
@@ -155,14 +154,41 @@ const copyLink = () => {
 @media (max-width: 768px) {
   .sebarkan-layout {
     flex-direction: column;
-    align-items: flex-start;
-    gap: 24px;
-    padding-top: 40px;
-    padding-bottom: 40px;
+    align-items: center;
+    text-align: center;
+    gap: 20px;
+    padding-top: 48px;
+    padding-bottom: 48px;
   }
-  .sebarkan-buttons {
-    flex-wrap: wrap;
+
+  .sebarkan-text {
+    align-items: center;
+    text-align: center;
     gap: 12px;
   }
+
+  .sebarkan-title {
+    font-size: 26px;
+    text-align: center;
+  }
+
+  .sebarkan-desc {
+    font-size: 14px;
+    text-align: center;
+    max-width: 310px;
+    color: #616161;
+  }
+
+  .sebarkan-buttons {
+    justify-content: center;
+    gap: 12px;
+    width: 100%;
+    margin-top: 4px;
+  }
+
+  .btn-social {
+    width: 44px;
+    height: 44px;
+  }
 }
-</style>e>
+</style>

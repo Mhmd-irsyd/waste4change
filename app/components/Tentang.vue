@@ -1,10 +1,17 @@
 <template>
   <!-- SECTION - ABOUT: bg #FAFAFA, padding 64px 140px, gap 56px, centered -->
   <section id="tentang" style="background:#FAFAFA;">
-    <div class="figma-container" style="padding-top:64px; padding-bottom:64px;">
+    <div class="figma-container py-10 lg:py-16">
+
+      <!-- Mobile Section Header: Centered "TENTANG" + underline (Mobile Only) -->
+      <div class="flex lg:hidden flex-col items-center text-center mb-6">
+        <h2 class="about-label">TENTANG</h2>
+        <span class="section-underline section-underline-center"></span>
+      </div>
+
       <div class="about-grid">
 
-        <!-- ── Left: Photo — border-radius 8px ── -->
+        <!-- Left / Top: Photo -->
         <div class="about-img-wrap">
           <img
             src="/images/about-workers.png"
@@ -16,16 +23,16 @@
           />
         </div>
 
-        <!-- ── Right: Content ── -->
+        <!-- Right / Bottom: Content -->
         <div class="about-content">
 
-          <!-- Section label: Nunito 20px bold, #0A0A0A -->
-          <div class="about-label-wrap">
+          <!-- Desktop Section label (Desktop Only) -->
+          <div class="about-label-wrap hidden lg:flex">
             <h2 class="about-label">TENTANG</h2>
             <span class="section-underline"></span>
           </div>
 
-          <!-- Card 1: gradient #17A2B8 → #22B78C → #2AC769, 8px radius, 20px 28px padding -->
+          <!-- Card 1: gradient background -->
           <div class="about-card">
             <h3 class="about-card-title">Bangun Ekosistem Daur Ulang yang Bertanggung Jawab</h3>
             <p class="about-card-desc">
@@ -35,7 +42,7 @@
             </p>
           </div>
 
-          <!-- Card 2: same gradient -->
+          <!-- Card 2: gradient background -->
           <div class="about-card">
             <h3 class="about-card-title">Banyak program daur ulang berhenti di tahap pengumpulan.</h3>
             <p class="about-card-desc">
@@ -55,7 +62,7 @@
 </script>
 
 <style scoped>
-/* Grid: row, 48px gap, fill width, stretch so both cols match height */
+/* Grid: row, 48px gap, fill width */
 .about-grid {
   display: flex;
   flex-direction: row;
@@ -64,14 +71,13 @@
   width: 100%;
 }
 
-/* Image container: 8px radius, fills full height of the row */
+/* Image container: 12px radius */
 .about-img-wrap {
   flex: 1;
   min-width: 0;
   max-width: 520px;
-  border-radius: 8px;
+  border-radius: 12px;
   overflow: hidden;
-  /* stretch vertically to match the content column height */
   align-self: stretch;
   min-height: 360px;
 }
@@ -83,7 +89,7 @@
   display: block;
 }
 
-/* Right content: 572px wide, col gap 24px, cards fill available space */
+/* Right content: 572px wide, col gap 24px */
 .about-content {
   display: flex;
   flex-direction: column;
@@ -92,12 +98,7 @@
   max-width: 572px;
 }
 
-/* Cards grow equally to fill the remaining height below the label */
-.about-card {
-  flex: 1;
-}
-
-/* Section label: Nunito 20px/700, color #0A0A0A */
+/* Section label */
 .about-label-wrap {
   display: flex;
   flex-direction: column;
@@ -105,56 +106,83 @@
 }
 .about-label {
   font-family: 'Nunito', sans-serif;
-  font-size: 20px;
+  font-size: 24px;
   font-weight: 700;
   line-height: 1.2;
   color: #0A0A0A;
   margin: 0;
+  letter-spacing: 0.02em;
 }
 
-/* Card: gradient bg, 8px radius, 20px 28px padding, flex:1 set in content block above */
+/* Card: gradient bg, 14px radius, 24px 28px padding */
 .about-card {
-  background: linear-gradient(90deg, #17A2B8 0%, #22B78C 55.86%, #2AC769 100%);
-  border-radius: 8px;
-  padding: 20px 28px;
+  background: linear-gradient(135deg, #17A2B8 0%, #22B78C 55%, #2AC769 100%);
+  border-radius: 14px;
+  padding: 24px 28px;
   display: flex;
   flex-direction: column;
-  gap: 10px;
-  /* flex:1 makes both cards share remaining height equally */
+  gap: 12px;
+  flex: 1;
   justify-content: center;
 }
 
-/* Card title: Open Sans 20px/700, white, line-height 1.5 */
+/* Card title: Open Sans 18px-20px/700, white */
 .about-card-title {
   font-family: 'Open Sans', sans-serif;
-  font-size: 20px;
+  font-size: 19px;
   font-weight: 700;
-  line-height: 1.5;
+  line-height: 1.45;
   color: #ffffff;
   margin: 0;
 }
 
-/* Card desc: Open Sans 14px/400, white, line-height 1.5 */
+/* Card desc: Open Sans 14px/400, white */
 .about-card-desc {
   font-family: 'Open Sans', sans-serif;
   font-size: 14px;
   font-weight: 400;
-  line-height: 1.5;
-  color: #ffffff;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.94);
   margin: 0;
 }
 
-/* ── Responsive ── */
-
+/* Responsive Mobile Layout */
 @media (max-width: 1024px) {
-  .about-grid       { flex-direction: column; gap: 32px; }
-  .about-img-wrap   { max-width: 100%; width: 100%; flex: none; min-height: 240px; height: 260px; }
-  .about-content    { flex: none; max-width: 100%; width: 100%; }
+  .about-grid {
+    flex-direction: column;
+    gap: 20px;
+  }
+  .about-img-wrap {
+    max-width: 100%;
+    width: 100%;
+    flex: none;
+    min-height: unset;
+    height: 240px;
+    border-radius: 14px;
+  }
+  .about-content {
+    flex: none;
+    max-width: 100%;
+    width: 100%;
+    gap: 16px;
+  }
+  .about-card {
+    padding: 24px 20px;
+    border-radius: 14px;
+  }
+  .about-card-title {
+    font-size: 17px;
+    line-height: 1.4;
+  }
+  .about-card-desc {
+    font-size: 13.5px;
+    line-height: 1.55;
+  }
 }
-@media (max-width: 640px) {
-  .about-card       { padding: 16px 20px; }
-  .about-card-title { font-size: 17px; }
-  .about-card-desc  { font-size: 13px; }
-  .about-img-wrap   { min-height: 200px; height: 200px; }
+
+@media (max-width: 480px) {
+  .about-img-wrap {
+    height: 210px;
+  }
 }
 </style>

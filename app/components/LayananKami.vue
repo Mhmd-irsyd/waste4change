@@ -169,9 +169,9 @@ defineEmits(['detail'])
 
 // Card 1: Responsible Packaging Recovery (9 Clients)
 const card1Clients = [
-  { name: 'rePurpose',      logo: '/images/clients/repurpose.png' },
-  { name: 'CleanHub',       logo: '/images/clients/cleanhub.png' },
-  { name: 'ogyre',          logo: '/images/clients/ogyre.png' },
+  { name: 'rePurpose',      logo: '/images/clients/client-0.png' },
+  { name: 'CleanHub',       logo: '/images/clients/client-1.png' },
+  { name: 'ogyre',          logo: '/images/clients/client-2.png' },
   { name: 'Plastic-Offset', logo: '/images/clients/client-3.png' },
   { name: 'IPRO',           logo: '/images/clients/client-4.png' },
   { name: 'Tetra Pak',      logo: '/images/clients/tetra-pak.png' },
@@ -549,3 +549,4 @@ const scrollLogos = (refName: string, dir: number) => {
   .svc-img-wrap { height: 180px; }
 }
 </style>
+

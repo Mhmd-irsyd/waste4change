@@ -90,11 +90,11 @@
     </div>
 
     <!-- SECONDARY SUBNAV BAR -->
-    <div class="hidden lg:block bg-[#F5F5F5] shadow-nav">
-      <div class="figma-container flex items-center justify-between" style="height:44px;">
+    <div class="bg-[#F5F5F5] border-b border-gray-200">
+      <div class="figma-container flex items-center justify-between py-2 lg:py-0" style="min-height:44px;">
 
-        <!-- Subnav Links -->
-        <nav class="flex items-center gap-6" aria-label="Secondary navigation">
+        <!-- Desktop Subnav Links -->
+        <nav class="hidden lg:flex items-center gap-6" aria-label="Secondary navigation">
           <button
             v-for="link in subnavLinks"
             :key="link"
@@ -105,12 +105,65 @@
           </button>
         </nav>
 
-        <!-- Subnav CTA -->
-        <button class="btn-primary" style="font-size:12px; letter-spacing:0.08em;" @click="showToast('Dukung Tujuan Kami')">
+        <!-- Desktop Subnav CTA -->
+        <button class="hidden lg:inline-flex btn-primary" style="font-size:12px; letter-spacing:0.08em;" @click="showToast('Dukung Tujuan Kami')">
           DUKUNG TUJUAN KAMI
         </button>
 
+        <!-- Mobile Subnav Bar (Matches Screenshot) -->
+        <div class="flex lg:hidden items-center justify-between w-full">
+          <!-- Left: Back chevron + RWR -->
+          <button @click="scrollToTop" class="flex items-center gap-1.5 text-[#0A0A0A] hover:opacity-80 transition-opacity">
+            <svg class="w-4 h-4 text-[#0A0A0A]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7"/>
+            </svg>
+            <span class="font-bold text-xs sm:text-sm text-[#0A0A0A] tracking-wider">RWR</span>
+          </button>
+
+          <!-- Middle: Pill CTA button DUKUNG TUJUAN KAMI -->
+          <button
+            class="btn-primary text-[10px] sm:text-[11px] font-bold tracking-wider px-4 rounded-full"
+            style="height:34px; border-radius:9999px; background-color:#17A2B8;"
+            @click="showToast('Dukung Tujuan Kami')"
+          >
+            DUKUNG TUJUAN KAMI
+          </button>
+
+          <!-- Right: Down chevron for mobile subnav toggle -->
+          <button
+            @click="subnavOpen = !subnavOpen"
+            class="p-1 text-[#0A0A0A] hover:opacity-80 transition-opacity"
+            aria-label="Toggle subnav menu"
+          >
+            <svg
+              class="w-4 h-4 text-[#0A0A0A] transition-transform duration-200"
+              :class="{ 'rotate-180': subnavOpen }"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"/>
+            </svg>
+          </button>
+        </div>
+
       </div>
+
+      <!-- Mobile Subnav Dropdown Drawer -->
+      <Transition name="subnav-drawer">
+        <div v-if="subnavOpen" class="lg:hidden bg-white border-t border-gray-200 px-4 py-2">
+          <nav class="flex flex-col gap-1">
+            <button
+              v-for="link in subnavLinks"
+              :key="link"
+              class="text-left py-2 px-2 text-xs font-semibold text-[#404040] hover:text-[#17A2B8] transition-colors border-b border-gray-50 last:border-none"
+              @click="handleSubnavMobileLink(link)"
+            >
+              {{ link }}
+            </button>
+          </nav>
+        </div>
+      </Transition>
     </div>
 
     <!-- MOBILE DRAWER -->
@@ -163,6 +216,7 @@
 
 <script setup lang="ts">
 const mobileOpen = ref(false)
+const subnavOpen = ref(false)
 const scrolled = ref(false)
 const toastVisible = ref(false)
 const toastPage = ref('')
@@ -181,6 +235,15 @@ const showToast = (page: string) => {
 const handleMobileLink = (page: string) => {
   mobileOpen.value = false
   showToast(page)
+}
+
+const handleSubnavMobileLink = (link: string) => {
+  subnavOpen.value = false
+  showToast(link)
+}
+
+const scrollToTop = () => {
+  window.scrollTo({ top: 0, behavior: 'smooth' })
 }
 
 onMounted(() => {
@@ -250,6 +313,11 @@ onMounted(() => {
 .mobile-menu-leave-active { transition: all 0.2s ease; }
 .mobile-menu-enter-from,
 .mobile-menu-leave-to { opacity: 0; transform: translateY(-6px); }
+
+.subnav-drawer-enter-active,
+.subnav-drawer-leave-active { transition: all 0.2s ease; }
+.subnav-drawer-enter-from,
+.subnav-drawer-leave-to { opacity: 0; transform: translateY(-4px); }
 
 .toast-enter-active,
 .toast-leave-active { transition: all 0.25s ease; }

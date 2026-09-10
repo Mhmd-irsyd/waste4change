@@ -1,35 +1,40 @@
 ﻿<template>
-  <!-- SECTION - LAYANAN KAMI -->
-  <section id="layanan" style="background:#ffffff;">
-    <div class="layanan-container">
+  <section id="layanan-kami" class="layanan-section">
+    <div class="layanan-container figma-container">
 
-      <!-- ===== Header ===== -->
-      <!-- DESKTOP: title left, desc right | MOBILE: both centered -->
+      <!-- Section Header -->
       <div class="layanan-header">
         <div class="layanan-title-wrap">
-          <h2 class="section-title layanan-title-text">LAYANAN KAMI</h2>
-          <span class="section-underline layanan-underline"></span>
+          <div class="layanan-title-text">
+            <h2 class="section-title">LAYANAN KAMI</h2>
+            <div class="section-title-line layanan-underline"></div>
+          </div>
         </div>
-        <p class="svc-header-desc">Berikut beberapa layanan yang relevan terhadap kebutuhan Anda</p>
+        <p class="svc-header-desc">
+          Kami menyediakan solusi pengelolaan sampah dari hulu ke hilir untuk bisnis dan industri.
+        </p>
       </div>
 
-      <!-- ===== Service Cards ===== -->
+      <!-- Service Cards List -->
       <div class="svc-cards-list">
 
         <!-- Card 1: Responsible Packaging Recovery -->
         <div class="svc-card">
           <div class="svc-img-wrap">
-            <img src="/images/services/svc1-photo.jpg" alt="Responsible Packaging Recovery" class="svc-img" loading="lazy"/>
+            <img src="/images/hero-forklift.png" alt="Responsible Packaging Recovery" class="svc-img" loading="lazy"/>
           </div>
           <div class="svc-info">
             <div class="svc-desc-block">
               <span class="svc-category">Material Traceability</span>
               <h3 class="svc-title">Responsible Packaging Recovery</h3>
-              <p class="svc-desc">Membantu produsen memulihkan kemasan pascakonsumsi melalui pengumpulan dan daur ulang yang bertanggung jawab, dengan sistem tertelusur dan data kredibel untuk pelaporan keberlanjutan dan EPR.</p>
+              <p class="svc-desc">
+                Membantu produsen memulihkan kemasan pascakonsumsi melalui pengumpulan dan daur ulang yang bertanggung jawab, dengan sistem tertelusur dan data kredibel untuk pelaporan keberlanjutan dan EPR.
+              </p>
             </div>
             <div class="svc-clients-block">
               <div class="svc-clients-header">
                 <span class="svc-clients-label">Klien kami</span>
+                <!-- Desktop Navigation Arrows -->
                 <div class="svc-nav-arrows svc-nav-desktop">
                   <button class="svc-arrow-btn" @click="scrollLogos('svc1', -1)" aria-label="Previous">
                     <svg width="16" height="16" fill="none" stroke="#17A2B8" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/></svg>
@@ -39,7 +44,8 @@
                   </button>
                 </div>
               </div>
-              <!-- Desktop: scrollable row -->
+
+              <!-- Desktop Horizontal Scroll Row -->
               <div class="svc-logos-outer svc-logos-desktop">
                 <div class="svc-logos-row" ref="svc1">
                   <div class="svc-logo-box" v-for="client in card1Clients" :key="client.name">
@@ -48,7 +54,8 @@
                 </div>
                 <div class="svc-logos-fade"></div>
               </div>
-              <!-- Mobile: wrap grid -->
+
+              <!-- Mobile 2-Column Centered Grid -->
               <div class="svc-logos-grid svc-logos-mobile">
                 <div class="svc-logo-box" v-for="client in card1Clients" :key="client.name">
                   <img :src="client.logo" :alt="client.name" class="svc-logo-img"/>
@@ -65,13 +72,15 @@
           </div>
           <div class="svc-info">
             <div class="svc-desc-block">
-              <span class="svc-category">Community &amp; Ecosystem</span>
               <h3 class="svc-title">Circular Sustainability Initiative</h3>
-              <p class="svc-desc">Membantu organisasi merancang dan menjalankan program ekonomi sirkular melalui kolaborasi, pelibatan masyarakat, dan penguatan kapasitas untuk mendorong perubahan perilaku dan sistem pengelolaan sampah.</p>
+              <p class="svc-desc">
+                Membantu organisasi merancang dan menjalankan program ekonomi sirkular melalui kolaborasi, pelibatan masyarakat, dan penguatan kapasitas untuk mendorong perubahan perilaku dan sistem pengelolaan sampah.
+              </p>
             </div>
             <div class="svc-clients-block">
               <div class="svc-clients-header">
                 <span class="svc-clients-label">Klien kami</span>
+                <!-- Desktop Navigation Arrows -->
                 <div class="svc-nav-arrows svc-nav-desktop">
                   <button class="svc-arrow-btn" @click="scrollLogos('svc2', -1)" aria-label="Previous">
                     <svg width="16" height="16" fill="none" stroke="#17A2B8" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/></svg>
@@ -81,6 +90,8 @@
                   </button>
                 </div>
               </div>
+
+              <!-- Desktop Horizontal Scroll Row -->
               <div class="svc-logos-outer svc-logos-desktop">
                 <div class="svc-logos-row" ref="svc2">
                   <div class="svc-logo-box" v-for="client in card2Clients" :key="client.name">
@@ -89,6 +100,8 @@
                 </div>
                 <div class="svc-logos-fade"></div>
               </div>
+
+              <!-- Mobile 2-Column Centered Grid -->
               <div class="svc-logos-grid svc-logos-mobile">
                 <div class="svc-logo-box" v-for="client in card2Clients" :key="client.name">
                   <img :src="client.logo" :alt="client.name" class="svc-logo-img"/>
@@ -105,13 +118,15 @@
           </div>
           <div class="svc-info">
             <div class="svc-desc-block">
-              <span class="svc-category">Collection &amp; Data Center</span>
               <h3 class="svc-title">Recycling Hub</h3>
-              <p class="svc-desc">Menyediakan fasilitas penyetoran sampah terpilah dan program edukasi untuk meningkatkan pemilahan dari sumber, didukung sistem data kredibel untuk pelaporan keberlanjutan dan EPR.</p>
+              <p class="svc-desc">
+                Menyediakan fasilitas penyetoran sampah terpilah dan program edukasi untuk meningkatkan pemilahan dari sumber, didukung sistem data kredibel untuk pelaporan keberlanjutan dan EPR.
+              </p>
             </div>
             <div class="svc-clients-block">
               <div class="svc-clients-header">
                 <span class="svc-clients-label">Klien kami</span>
+                <!-- Desktop Navigation Arrows -->
                 <div class="svc-nav-arrows svc-nav-desktop">
                   <button class="svc-arrow-btn" @click="scrollLogos('svc3', -1)" aria-label="Previous">
                     <svg width="16" height="16" fill="none" stroke="#17A2B8" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/></svg>
@@ -121,6 +136,8 @@
                   </button>
                 </div>
               </div>
+
+              <!-- Desktop Horizontal Scroll Row -->
               <div class="svc-logos-outer svc-logos-desktop">
                 <div class="svc-logos-row" ref="svc3">
                   <div class="svc-logo-box" v-for="client in card3Clients" :key="client.name">
@@ -129,6 +146,8 @@
                 </div>
                 <div class="svc-logos-fade"></div>
               </div>
+
+              <!-- Mobile 2-Column Centered Grid -->
               <div class="svc-logos-grid svc-logos-mobile">
                 <div class="svc-logo-box" v-for="client in card3Clients" :key="client.name">
                   <img :src="client.logo" :alt="client.name" class="svc-logo-img"/>
@@ -146,11 +165,13 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 
-// Card 1: Responsible Packaging Recovery
+defineEmits(['detail'])
+
+// Card 1: Responsible Packaging Recovery (9 Clients)
 const card1Clients = [
-  { name: 'rePurpose',      logo: '/images/clients/client-0.png' },
-  { name: 'CleanHub',       logo: '/images/clients/client-1.png' },
-  { name: 'Ogyre',          logo: '/images/clients/client-2.png' },
+  { name: 'rePurpose',      logo: '/images/clients/repurpose.png' },
+  { name: 'CleanHub',       logo: '/images/clients/cleanhub.png' },
+  { name: 'ogyre',          logo: '/images/clients/ogyre.png' },
   { name: 'Plastic-Offset', logo: '/images/clients/client-3.png' },
   { name: 'IPRO',           logo: '/images/clients/client-4.png' },
   { name: 'Tetra Pak',      logo: '/images/clients/tetra-pak.png' },
@@ -159,7 +180,7 @@ const card1Clients = [
   { name: 'Avoskin',        logo: '/images/clients/avoskin.png' },
 ]
 
-// Card 2: Circular Sustainability Initiative
+// Card 2: Circular Sustainability Initiative (6 Clients)
 const card2Clients = [
   { name: 'WWF',          logo: '/images/clients/client-8.png' },
   { name: 'DBS',          logo: '/images/clients/client-9.png' },
@@ -169,9 +190,9 @@ const card2Clients = [
   { name: 'Sprite',       logo: '/images/clients/sprite.svg' },
 ]
 
-// Card 3: Recycling Hub
+// Card 3: Recycling Hub (2 Clients)
 const card3Clients = [
-  { name: 'NestlÃƒÂ©',      logo: '/images/clients/client-14.png' },
+  { name: 'Nestlé',       logo: '/images/clients/client-14.png' },
   { name: 'MedcoEnergi', logo: '/images/clients/client-13.png' },
 ]
 
@@ -222,7 +243,6 @@ const scrollLogos = (refName: string, dir: number) => {
   margin-top: 0;
 }
 
-/* Header desc: right-aligned on desktop */
 .svc-header-desc {
   font-family: 'Open Sans', sans-serif;
   font-size: 14px;
@@ -282,14 +302,12 @@ const scrollLogos = (refName: string, dir: number) => {
   min-width: 0;
 }
 
-/* Description block */
 .svc-desc-block {
   display: flex;
   flex-direction: column;
   gap: 8px;
 }
 
-/* Category tag */
 .svc-category {
   font-family: 'Open Sans', sans-serif;
   font-size: 12px;
@@ -298,7 +316,6 @@ const scrollLogos = (refName: string, dir: number) => {
   color: #00A5BA;
 }
 
-/* Service title */
 .svc-title {
   font-family: 'Asap', sans-serif;
   font-size: 20px;
@@ -308,7 +325,6 @@ const scrollLogos = (refName: string, dir: number) => {
   margin: 0;
 }
 
-/* Service description */
 .svc-desc {
   font-family: 'Open Sans', sans-serif;
   font-size: 14px;
@@ -322,7 +338,7 @@ const scrollLogos = (refName: string, dir: number) => {
 .svc-clients-block {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 12px;
 }
 
 .svc-clients-header {
@@ -333,7 +349,6 @@ const scrollLogos = (refName: string, dir: number) => {
   gap: 12px;
 }
 
-/* "Klien kami" label */
 .svc-clients-label {
   font-family: 'Asap', sans-serif;
   font-size: 14px;
@@ -342,7 +357,6 @@ const scrollLogos = (refName: string, dir: number) => {
   color: #404040;
 }
 
-/* Nav arrows (desktop only) */
 .svc-nav-arrows {
   display: flex;
   flex-direction: row;
@@ -366,7 +380,7 @@ const scrollLogos = (refName: string, dir: number) => {
 }
 .svc-arrow-btn:hover { background: #E3F4F6; }
 
-/* ===== Desktop Logo Row (scrollable) ===== */
+/* ===== Desktop Logo Row ===== */
 .svc-logos-outer {
   position: relative;
   overflow: hidden;
@@ -384,7 +398,6 @@ const scrollLogos = (refName: string, dir: number) => {
 }
 .svc-logos-row::-webkit-scrollbar { display: none; }
 
-/* Fade overlay at right edge */
 .svc-logos-fade {
   position: absolute;
   top: 0; right: 0;
@@ -394,15 +407,7 @@ const scrollLogos = (refName: string, dir: number) => {
   pointer-events: none;
 }
 
-/* ===== Mobile Logo Grid (wrap) ===== */
-.svc-logos-grid {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  gap: 8px;
-}
-
-/* Each logo box */
+/* ===== Default logo box (Desktop) ===== */
 .svc-logo-box {
   display: flex;
   align-items: center;
@@ -424,12 +429,12 @@ const scrollLogos = (refName: string, dir: number) => {
   transition: opacity 0.2s;
 }
 
-/* Show/hide per breakpoint */
+/* Visibility Control */
 .svc-logos-desktop { display: block; }
 .svc-logos-mobile  { display: none; }
 .svc-nav-desktop   { display: flex; }
 
-/* ===== Responsive ===== */
+/* Responsive Adjustments */
 @media (max-width: 1440px) {
   .layanan-container { padding-left: 80px; padding-right: 80px; }
 }
@@ -441,7 +446,7 @@ const scrollLogos = (refName: string, dir: number) => {
   .svc-header-desc { text-align: left; max-width: 100%; }
 }
 
-/* ===== MOBILE: Ã¢â€°Â¤768px ===== */
+/* ===== MOBILE VIEW (< 768px): EXACT 2-COLUMN LOGO GRID MATCH ===== */
 @media (max-width: 768px) {
   .layanan-container {
     padding-left: 20px;
@@ -451,7 +456,6 @@ const scrollLogos = (refName: string, dir: number) => {
     gap: 28px;
   }
 
-  /* Header: stack, centered */
   .layanan-header {
     flex-direction: column;
     align-items: center;
@@ -473,7 +477,6 @@ const scrollLogos = (refName: string, dir: number) => {
     font-size: 14px;
   }
 
-  /* Cards: no border on mobile, just padding */
   .svc-card {
     flex-direction: column;
     padding: 0;
@@ -485,55 +488,64 @@ const scrollLogos = (refName: string, dir: number) => {
   }
 
   .svc-cards-list {
-    gap: 20px;
+    gap: 24px;
   }
 
-  /* Image full width, taller on mobile */
   .svc-img-wrap {
     width: 100%;
     height: 200px;
     border-radius: 8px;
   }
 
-  /* Info block */
   .svc-info { gap: 16px; }
 
-  /* Title */
   .svc-title {
     font-size: 18px;
     font-weight: 700;
     line-height: 1.3;
   }
 
-  /* Desc */
   .svc-desc {
     font-size: 13px;
     line-height: 1.6;
   }
 
-  /* Switch logo layout */
-  .svc-logos-desktop { display: none; }
-  .svc-logos-mobile  { display: flex; }
-  .svc-nav-desktop   { display: none; }
+  /* Show Mobile Grid, Hide Desktop Scroll */
+  .svc-logos-desktop { display: none !important; }
+  .svc-logos-mobile  { display: flex !important; }
+  .svc-nav-desktop   { display: none !important; }
 
-  /* Mobile logo grid: 3 per row */
+  /* Mobile Logo Grid: 2 columns per row, centered last row */
   .svc-logos-grid {
-    gap: 6px;
+    display: flex !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    gap: 12px !important;
+    width: 100% !important;
+    margin-top: 8px !important;
   }
 
-  .svc-logo-box {
-    width: calc(33.333% - 5px);
-    height: 48px;
-    padding: 6px;
+  .svc-logos-mobile .svc-logo-box {
+    width: calc(50% - 6px) !important;
+    height: 64px !important;
+    padding: 12px 16px !important;
+    border: 1px solid #EAEAEA !important;
+    border-radius: 8px !important;
+    background: #ffffff !important;
+    box-sizing: border-box !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    flex-shrink: 0 !important;
   }
 }
 
 @media (max-width: 480px) {
-  .svc-logo-box {
-    width: calc(33.333% - 5px);
-    height: 44px;
+  .svc-logos-mobile .svc-logo-box {
+    width: calc(50% - 6px) !important;
+    height: 60px !important;
+    padding: 10px 14px !important;
   }
   .svc-img-wrap { height: 180px; }
 }
 </style>
-

@@ -221,12 +221,17 @@
     flex: 0 0 calc(50% - 12px);
   }
 }
-@media (max-width: 600px) {
+
+@media (max-width: 640px) {
   .pillar-col {
     flex: 0 0 100%;
+    width: 100%;
   }
   .pillar-number {
-    font-size: 60px;
+    font-size: 54px;
+  }
+  .pillar-img-wrap {
+    height: 200px;
   }
 }
 </style>

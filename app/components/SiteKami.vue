@@ -464,14 +464,22 @@
   }
 }
 
+
 @media (max-width: 768px) {
   .site-cards-grid {
     grid-template-columns: 1fr;
   }
   .site-container {
-    padding-top: 60px;
-    padding-bottom: 60px;
+    padding-top: 48px;
+    padding-bottom: 48px;
     gap: 32px;
   }
+}
+@media (max-width: 640px) {
+  .site-card-body { padding: 20px 16px 24px 16px; }
+  .site-card-img-wrap { height: 200px; }
+  .site-card-name { font-size: 19px; }
+  .site-stats-grid { gap: 12px 8px; }
+  .site-stat-val { font-size: 16px; }
 }
 </style>

@@ -181,7 +181,13 @@ const faqs = [
 .faq-panel-enter-to,
 .faq-panel-leave-from { opacity: 1; max-height: 300px; }
 
+
 @media (max-width: 768px) {
+  .faq-trigger { padding: 20px 16px; }
+  .faq-question { font-size: 14px; }
   .faq-answer { padding: 0 16px 20px 16px; }
+}
+@media (max-width: 480px) {
+  .faq-accordion { width: 100%; max-width: 100%; }
 }
 </style>

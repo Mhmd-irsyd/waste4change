@@ -338,10 +338,21 @@
 }
 
 /* Responsive */
+
 @media (max-width: 992px) {
   .footer-content {
     flex-direction: column;
     gap: 36px;
+    padding-top: 48px;
+    padding-bottom: 48px;
+  }
+}
+@media (max-width: 640px) {
+  .bottom-container {
+    flex-direction: column;
+    gap: 12px;
+    text-align: center;
+    justify-content: center;
   }
 }
 </style>

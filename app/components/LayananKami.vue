@@ -391,9 +391,17 @@ const scrollLogos = (ref: string, dir: number) => {
 }
 
 /* ── Responsive ── */
+
 @media (max-width: 1024px) {
   .svc-card { flex-direction: column; padding: 24px; }
   .svc-img-wrap { width: 100%; height: 220px; }
   .svc-header-desc { text-align: left; max-width: 100%; }
+}
+@media (max-width: 640px) {
+  .svc-card { padding: 18px 16px; gap: 16px; }
+  .svc-img-wrap { height: 180px; }
+  .svc-title { font-size: 18px; }
+  .svc-desc { font-size: 13px; }
+  .svc-logos-outer { max-width: 100%; }
 }
 </style>

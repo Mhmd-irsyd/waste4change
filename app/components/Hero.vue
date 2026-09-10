@@ -43,7 +43,7 @@
         </p>
 
         <!-- CTA Buttons -->
-        <div class="flex flex-col sm:flex-row items-start gap-5">
+        <div class="flex flex-col sm:flex-row items-stretch sm:items-start gap-4 w-full sm:w-auto">
           <button class="btn-primary" @click="$emit('dukung')">
             DUKUNG TUJUAN KAMI
           </button>
@@ -98,5 +98,10 @@ defineEmits(['dukung', 'download'])
 @media (max-width: 768px) {
   .hero-title { font-size: 28px; }
   .hero-desc  { font-size: 14px; line-height: 1.7; }
+}
+
+@media (max-width: 640px) {
+  .hero-title { font-size: 24px; }
+  .hero-desc  { font-size: 13px; line-height: 1.6; }
 }
 </style>

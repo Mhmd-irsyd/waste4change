@@ -182,6 +182,8 @@
 }
 
 @media (max-width: 640px) {
+  .reco-card { padding: 14px 16px; min-height: 64px; }
+  .reco-card-text { font-size: 13px; }
   .reco-grid {
     grid-template-columns: 1fr;
   }

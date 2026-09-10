@@ -145,9 +145,16 @@
 }
 
 /* ── Responsive ── */
+
 @media (max-width: 1024px) {
-  .about-grid       { flex-direction: column; }
-  .about-img-wrap   { max-width: 100%; flex: none; min-height: 260px; }
-  .about-content    { flex: none; max-width: 100%; }
+  .about-grid       { flex-direction: column; gap: 32px; }
+  .about-img-wrap   { max-width: 100%; width: 100%; flex: none; min-height: 240px; height: 260px; }
+  .about-content    { flex: none; max-width: 100%; width: 100%; }
+}
+@media (max-width: 640px) {
+  .about-card       { padding: 16px 20px; }
+  .about-card-title { font-size: 17px; }
+  .about-card-desc  { font-size: 13px; }
+  .about-img-wrap   { min-height: 200px; height: 200px; }
 }
 </style>

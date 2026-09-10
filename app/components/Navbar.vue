@@ -111,7 +111,7 @@
         </button>
 
         <!-- Mobile Subnav Bar (Matches Screenshot) -->
-        <div class="flex lg:hidden items-center justify-between w-full">
+        <div class="flex lg:hidden items-center w-full">
           <!-- Left: Back chevron + RWR -->
           <button @click="scrollToTop" class="flex items-center gap-1.5 text-[#0A0A0A] hover:opacity-80 transition-opacity">
             <svg class="w-4 h-4 text-[#0A0A0A]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -120,7 +120,10 @@
             <span class="font-bold text-xs sm:text-sm text-[#0A0A0A] tracking-wider">RWR</span>
           </button>
 
-          <!-- Middle: Pill CTA button DUKUNG TUJUAN KAMI -->
+          
+          <!-- Right group: CTA + chevron grouped -->
+          <div class="ml-auto flex items-center gap-2">
+<!-- Middle: Pill CTA button DUKUNG TUJUAN KAMI -->
           <button
             class="btn-primary text-[10px] sm:text-[11px] font-bold tracking-wider px-4 rounded-full"
             style="height:34px; border-radius:9999px; background-color:#17A2B8;"
@@ -145,6 +148,7 @@
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"/>
             </svg>
           </button>
+          </div>
         </div>
 
       </div>

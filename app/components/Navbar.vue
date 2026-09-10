@@ -10,7 +10,7 @@
         <!-- Left: W4C Logo -->
         <NuxtLink to="/" class="flex items-center gap-2 focus:outline-none">
           <img
-            src="/images/w4c-logo.png"
+            src="/images/logo-waste4change.png"
             alt="Waste4Change Logo"
             class="h-8 md:h-10 w-auto object-contain"
           />
